@@ -39,12 +39,14 @@ THIRD_PARTY_APPS = (
     'allauth',  # registration
     'allauth.account',  # registration
     'allauth.socialaccount',  # registration
+    'taggit', # tagging
 )
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
     # custom users app
     'jop.users.apps.UsersConfig',
+    'jop.posts.apps.PostsConfig',
     # Your stuff: custom apps go here
 )
 
