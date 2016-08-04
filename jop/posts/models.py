@@ -41,8 +41,7 @@ class CachedImage(models.Model):
         """Store image locally if we have a URL"""
         if self.image_url and not self.image_file:
             result = urllib.urlretrieve(self.image_url)
-            self.photo.save(
+            self.image_file.save(
                 os.path.basename(self.image_url),
                 File(open(result[0]))
             )
-            self.save()
