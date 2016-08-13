@@ -1,4 +1,4 @@
-from random import random
+import random
 import string
 import urllib
 from django.conf import settings
@@ -26,7 +26,7 @@ class Post(models.Model):
             if not Post.objects.filter(slug=newslug).count():
                 self.slug = newslug
 
-        super(self, Post).save(*args, **kwargs)
+        super(Post, self).save(*args, **kwargs)
 
 
 class CachedImage(models.Model):
@@ -41,7 +41,10 @@ class CachedImage(models.Model):
         """Store image locally if we have a URL"""
         if self.image_url and not self.image_file:
             result = urllib.urlretrieve(self.image_url)
+            name = os.path.basename(self.image_url)
+            __, ext = os.path.splitext(name)
+            newname = ''.join(random.choice(string.digits + string.ascii_letters) for _ in range(10)) + ext
             self.image_file.save(
-                os.path.basename(self.image_url),
+                newname,
                 File(open(result[0]))
             )

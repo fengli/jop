@@ -17,6 +17,7 @@
     {% block css %}
     <!-- Latest compiled and minified Bootstrap 4 Alpha 3 CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/css/bootstrap.min.css" integrity="sha384-MIwDKRSSImVFAZCVLtU0LMDdON6KVCrZHyVQQj6e8wIEJkW4tvwqXrbMIya1vriY" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
 
     <!-- Your stuff: Third-party CSS libraries go here -->
     {% compress css %}
@@ -30,7 +31,7 @@
   <body>
 
     <div class="m-b-1">
-      <nav class="navbar navbar-dark navbar-static-top bg-inverse">
+      <nav class="navbar navbar-light navbar-static-top bg-white">
         <div class="container">
           <a class="navbar-brand" href="/">jop</a>
           <button type="button" class="navbar-toggler hidden-sm-up pull-xs-right" data-toggle="collapse" data-target="#bs-navbar-collapse-1">
@@ -79,7 +80,16 @@
       {% endif %}
 
       {% block content %}
-        <p>Use this document as a way to quick start any new project.</p>
+          <div class="row">
+              <div class="col-sm-8">
+                  {% block left-pane %}
+                  {% endblock %}
+              </div>
+              <div class="col-sm-4">
+                  {% block right-pane %}
+                  {% endblock %}
+              </div>
+          </div>
       {% endblock content %}
 
     </div> <!-- /container -->
@@ -99,7 +109,8 @@
 
       <!-- place project specific Javascript in this file -->
       {% compress js %}
-      <script src="{% static 'js/project.js' %}"></script>
+          <script src="{% static 'js/csrf.js' %}"></script>
+          <script src="{% static 'js/project.js' %}"></script>
       {% endcompress %}
 
     {% endblock javascript %}

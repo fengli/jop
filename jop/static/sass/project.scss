@@ -59,6 +59,10 @@ $red: #b94a48;
   }
 }
 
+.bg-white{
+  background: white;
+}
+
 ////////////////////////////////
 		//Django Toolbar//
 ////////////////////////////////
@@ -69,4 +73,54 @@ $red: #b94a48;
 
 [hidden][style="display: block;"] {
   display: block !important;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 900px;
+  }
+}
+
+body{
+  background: #fafafa;
+  line-height: 1.6;
+}
+
+.post-list{
+  .post-item{
+    background: white;
+    .post-header, .post-footer{
+      border: 1px solid #eee;
+      padding: 12px 24px;
+    }
+    .post-header{
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+    }
+    .post-footer{
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+      color: #999;
+
+      .status{
+        font-size: 12px;
+        border-bottom: 1px solid #efefef;
+        padding-bottom: 6px;
+      }
+      .action{
+        padding-top: 6px;
+
+        .voteup-toggle{
+          font-size: 24px;
+          color: #999;
+          &.active{
+            color: deeppink;
+          }
+        }
+      }
+    }
+  }
+  .post-item .post-body img{
+    width: 100%;
+  }
 }

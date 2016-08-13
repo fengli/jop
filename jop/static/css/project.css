@@ -1,38 +1,64 @@
-/* These styles are generated from project.scss. */
-
 .alert-debug {
-  color: black;
-  background-color: white;
+  background-color: #fff;
   border-color: #d6e9c6;
-}
+  color: #000; }
 
 .alert-error {
-  color: #b94a48;
   background-color: #f2dede;
   border-color: #eed3d7;
-}
+  color: #b94a48; }
 
-/* This is a fix for the bootstrap4 alpha release */
+.navbar {
+  border-radius: 0px; }
+
 @media (max-width: 47.9em) {
   .navbar-nav .nav-item {
-    float: none;
-    width: 100%;
     display: inline-block;
-  }
+    float: none;
+    width: 100%; }
 
   .navbar-nav .nav-item + .nav-item {
-    margin-left: 0;
-  }
+    margin-left: 0; }
 
   .nav.navbar-nav.pull-xs-right {
-    float: none !important;
-  }
-}
+    float: none !important; } }
+.bg-white {
+  background: white; }
 
-/* Display django-debug-toolbar.
-   See https://github.com/django-debug-toolbar/django-debug-toolbar/issues/742
-   and https://github.com/pydanny/cookiecutter-django/issues/317
-*/
 [hidden][style="display: block;"] {
-  display: block !important;
-}
+  display: block !important; }
+
+@media (min-width: 1200px) {
+  .container {
+    width: 900px; } }
+body {
+  background: #fafafa;
+  line-height: 1.6; }
+
+.post-list .post-item {
+  background: white; }
+  .post-list .post-item .post-header, .post-list .post-item .post-footer {
+    border: 1px solid #eee;
+    padding: 12px 24px; }
+  .post-list .post-item .post-header {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px; }
+  .post-list .post-item .post-footer {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    color: #999; }
+    .post-list .post-item .post-footer .status {
+      font-size: 12px;
+      border-bottom: 1px solid #efefef;
+      padding-bottom: 6px; }
+    .post-list .post-item .post-footer .action {
+      padding-top: 6px; }
+      .post-list .post-item .post-footer .action .voteup-toggle {
+        font-size: 24px;
+        color: #999; }
+        .post-list .post-item .post-footer .action .voteup-toggle.active {
+          color: deeppink; }
+.post-list .post-item .post-body img {
+  width: 100%; }
+
+/*# sourceMappingURL=project.css.map */

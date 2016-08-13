@@ -1,0 +1,11 @@
+{% load voting_tags %}
+
+<div class="post-footer">
+    <div class="status">
+        {% score_for_object post as score %}
+        {{ score.score }} 喜欢</div>
+    <div class="action">
+        {% vote_by_user request.user on post as vote %}
+        <a href="{% url 'posts:voteup' post.slug %}" class="voteup-toggle {%if vote.is_upvote%}active{% endif %}"><i class="fa {%if vote.is_upvote%}fa-heart{% else %}fa-heart-o{%endif%}" aria-hidden="true"></i></a>
+    </div>
+</div>

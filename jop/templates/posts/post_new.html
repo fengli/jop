@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Add new post{% endblock %}
+
+{% block left-pane %}
+    <h1>Add new post</h1>
+    <form class="form-horizontal" method="post" action="{% url 'posts:new' %}">
+        {% csrf_token %}
+        {{ post_form|crispy }}
+        <div class="control-group">
+          <div class="controls">
+            <button type="submit" class="btn" name="submit">Submit</button>
+          </div>
+        </div>
+    </form>
+{% endblock %}
