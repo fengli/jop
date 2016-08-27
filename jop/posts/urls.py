@@ -28,8 +28,14 @@ urlpatterns = [
     ),
 
     url(
-        regex=r'^vote/up/post/(?P<slug>\d+)/$',
-        view=views.vote_up,
-        name='voteup'
+        regex=r'^add/comment/post/(?P<slug>\d+)/$',
+        view=views.new_meme,
+        name='new_meme'
+    ),
+
+    url(
+        regex=r'^vote/up/meme/(?P<slug>\d+)/$',
+        view=views.vote_up_meme,
+        name='meme_voteup'
     ),
 ]

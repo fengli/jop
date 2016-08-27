@@ -14,7 +14,7 @@ var Actions = {
                         $link.addClass('processing');
                     },
                     success: function(responseHtml) {
-                        $link.closest('.post-footer').replaceWith(responseHtml);
+                        $link.closest('.meme-footer').replaceWith(responseHtml);
                     }
                 });
             }

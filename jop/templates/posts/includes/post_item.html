@@ -1,0 +1,11 @@
+{% load crispy_forms_tags %}
+{% load posts %}
+
+<div class="post-item">
+    <div class="post-header"><a href="{% url 'posts:detail' post.slug %}">{{ post.title }}</a></div>
+    <div class="post-body">
+        <img src="{{ MEDIA_URL }}{{ post.cached_image.image_file }}"/>
+    </div>
+    <div class="post-footer">
+    </div>
+</div>

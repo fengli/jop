@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load socialaccount_tags %}
+{% load posts %}
+
+{% block title %}{% endblock %}
+
+{% block left-pane %}
+    {% include "posts/includes/post_item.html" %}
+
+    <div class="comments section">
+        <h5>{{ post.meme_set.count }} Memes</h5>
+        <ul>
+            {% for meme in post.meme_set.all %}
+                <li>
+                    {% avatar user=meme.author size=35 %}
+                    <span class="pull-right date">{{ meme.update_date|timesince }}</span>
+                    <div class="meme-body">
+                        {{ meme.meme }}
+                    </div>
+                    {% include "posts/includes/meme_footer.html" %}
+                </li>
+            {% endfor %}
+        </ul>
+        <form method="post" action="{% url 'posts:new_meme' post.slug %}">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+        </form>
+    </div>
+{% endblock %}

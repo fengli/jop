@@ -1,8 +1,7 @@
-
 // project specific CSS goes here
 
 ////////////////////////////////
-		//Variables//
+//Variables//
 ////////////////////////////////
 
 // Alert colors
@@ -15,7 +14,7 @@ $dark-pink: #eed3d7;
 $red: #b94a48;
 
 ////////////////////////////////
-		//Alerts//
+//Alerts//
 ////////////////////////////////
 
 // bootstrap alert CSS, translated to the django-standard levels of
@@ -34,7 +33,7 @@ $red: #b94a48;
 }
 
 ////////////////////////////////
-		//Navbar//
+//Navbar//
 ////////////////////////////////
 
 // This is a fix for the bootstrap4 alpha release
@@ -59,12 +58,12 @@ $red: #b94a48;
   }
 }
 
-.bg-white{
+.bg-white {
   background: white;
 }
 
 ////////////////////////////////
-		//Django Toolbar//
+//Django Toolbar//
 ////////////////////////////////
 
 // Display django-debug-toolbar.
@@ -81,46 +80,99 @@ $red: #b94a48;
   }
 }
 
-body{
+body {
   background: #fafafa;
   line-height: 1.6;
 }
 
-.post-list{
-  .post-item{
-    background: white;
-    .post-header, .post-footer{
-      border: 1px solid #eee;
-      padding: 12px 24px;
-    }
-    .post-header{
-      border-top-left-radius: 3px;
-      border-top-right-radius: 3px;
-    }
-    .post-footer{
-      border-bottom-left-radius: 3px;
-      border-bottom-right-radius: 3px;
-      color: #999;
+.post-item {
+  margin-top: 30px;
+  background: white;
+  .post-header, .post-footer {
+    border: 1px solid #eee;
+    padding: 12px 24px;
+  }
+  .post-header {
+    font-size: 18px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  }
+  .post-footer {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    color: #999;
 
-      .status{
-        font-size: 12px;
-        border-bottom: 1px solid #efefef;
-        padding-bottom: 6px;
-      }
-      .action{
-        padding-top: 6px;
+    .status {
+      font-size: 12px;
+      border-bottom: 1px solid #efefef;
+      padding-bottom: 6px;
+    }
+    .action {
+      padding-top: 6px;
 
-        .voteup-toggle{
-          font-size: 24px;
-          color: #999;
-          &.active{
-            color: deeppink;
-          }
-        }
-      }
     }
   }
-  .post-item .post-body img{
-    width: 100%;
+}
+
+.post-item .post-body img {
+  width: 100%;
+}
+
+.section {
+  background: white;
+  border: 1px solid #eee;
+  padding: 12px 24px;
+  margin-top: 30px;
+
+  h5 {
+    margin-bottom: 20px;
+  }
+}
+
+ul {
+  margin-left: 0;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.comments {
+  li {
+    padding: 10px 0px;
+    border-bottom: 1px solid #efefef;
+  }
+
+  .date {
+    color: grey;
+    font-size: 12px;;
+  }
+}
+
+img.avatar {
+  float: left;
+  margin-right: 12px;
+  margin-top: 5px;
+}
+
+a.avatar {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.meme-footer, .meme-body {
+  margin-left: 46px;
+}
+
+.meme-footer {
+  .voteup-toggle {
+    font-size: 20px;
+    color: #999;
+    &.active {
+      color: deeppink;
+    }
+  }
+  .status {
+    color: #999;
+    font-size: 13px;
+    margin-left: 6px;
   }
 }

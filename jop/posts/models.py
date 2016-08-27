@@ -48,3 +48,24 @@ class CachedImage(models.Model):
                 newname,
                 File(open(result[0]))
             )
+
+
+class Meme(models.Model):
+    slug = models.SlugField(editable=False, db_index=True, unique=True)
+    meme = models.TextField(verbose_name=_('Meme'), max_length=100, db_index=True)
+    post = models.ForeignKey(Post)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL)
+    creation_date = models.DateTimeField(auto_now_add=True)
+    update_date = models.DateTimeField(auto_now_add=True)
+
+    def save(self, *args, **kwargs):
+        while not self.slug:
+            newslug = ''.join(random.choice(string.digits) for _ in range(10))
+
+            if not Meme.objects.filter(slug=newslug).count():
+                self.slug = newslug
+
+        super(Meme, self).save(*args, **kwargs)
+
+    def __unicode__(self):
+        return self.meme

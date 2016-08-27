@@ -1,0 +1,10 @@
+{% load voting_tags %}
+
+<div class="meme-footer">
+{% score_for_object meme as score %}
+    <div class="action">
+        {% vote_by_user request.user on meme as vote %}
+        <a href="{% url 'posts:meme_voteup' meme.slug %}" class="voteup-toggle {%if vote.is_upvote%}active{% endif %}"><i class="fa {%if vote.is_upvote%}fa-heart{% else %}fa-heart-o{%endif%}" aria-hidden="true"></i></a>
+        <span class="status"><b>{{ score.score }}</b> likes</span>
+    </div>
+</div>

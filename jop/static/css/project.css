@@ -35,30 +35,70 @@ body {
   background: #fafafa;
   line-height: 1.6; }
 
-.post-list .post-item {
+.post-item {
+  margin-top: 30px;
   background: white; }
-  .post-list .post-item .post-header, .post-list .post-item .post-footer {
+  .post-item .post-header, .post-item .post-footer {
     border: 1px solid #eee;
     padding: 12px 24px; }
-  .post-list .post-item .post-header {
+  .post-item .post-header {
+    font-size: 18px;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px; }
-  .post-list .post-item .post-footer {
+  .post-item .post-footer {
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
     color: #999; }
-    .post-list .post-item .post-footer .status {
+    .post-item .post-footer .status {
       font-size: 12px;
       border-bottom: 1px solid #efefef;
       padding-bottom: 6px; }
-    .post-list .post-item .post-footer .action {
+    .post-item .post-footer .action {
       padding-top: 6px; }
-      .post-list .post-item .post-footer .action .voteup-toggle {
-        font-size: 24px;
-        color: #999; }
-        .post-list .post-item .post-footer .action .voteup-toggle.active {
-          color: deeppink; }
-.post-list .post-item .post-body img {
+
+.post-item .post-body img {
   width: 100%; }
+
+.section {
+  background: white;
+  border: 1px solid #eee;
+  padding: 12px 24px;
+  margin-top: 30px; }
+  .section h5 {
+    margin-bottom: 20px; }
+
+ul {
+  margin-left: 0;
+  padding-left: 0;
+  list-style-type: none; }
+
+.comments li {
+  padding: 10px 0px;
+  border-bottom: 1px solid #efefef; }
+.comments .date {
+  color: grey;
+  font-size: 12px; }
+
+img.avatar {
+  float: left;
+  margin-right: 12px;
+  margin-top: 5px; }
+
+a.avatar {
+  font-size: 14px;
+  font-weight: bold; }
+
+.meme-footer, .meme-body {
+  margin-left: 46px; }
+
+.meme-footer .voteup-toggle {
+  font-size: 20px;
+  color: #999; }
+  .meme-footer .voteup-toggle.active {
+    color: deeppink; }
+.meme-footer .status {
+  color: #999;
+  font-size: 13px;
+  margin-left: 6px; }
 
 /*# sourceMappingURL=project.css.map */

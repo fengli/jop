@@ -1,18 +1,17 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
+{% load socialaccount_tags %}
 
 {% block title %}Post List{% endblock %}
 
 {% block left-pane %}
     <div class="post-list">
+    {% get_social_accounts request.user as accounts %}
+
+    <a href=""><img src="{{ accounts.facebook.0.extra_data.picture.data.url }}" /></a>
+
     {% for post in posts %}
-        <div class="post-item">
-            <div class="post-header">{{ post.title }}</div>
-            <div class="post-body">
-                <img src="{{ MEDIA_URL }}{{ post.cached_image.image_file }}" />
-            </div>
-            {% include "posts/includes/post_footer.html" %}
-        </div>
+    {% include "posts/includes/post_item.html" %}
     {% endfor %}
     </div>
 {% endblock %}
