@@ -90,7 +90,7 @@ body {
   background: white;
   .post-header, .post-footer {
     border: 1px solid #eee;
-    padding: 12px 24px;
+    padding: 12px 24px 20px 24px
   }
   .post-header {
     font-size: 18px;
@@ -100,12 +100,15 @@ body {
   .post-footer {
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
-    color: #999;
-
-    .status {
-      font-size: 12px;
-      border-bottom: 1px solid #efefef;
-      padding-bottom: 6px;
+    a {
+      color: #aaa;
+      font-size: 14px;
+      .count {
+        margin-right: 8px;
+      }
+      &:hover{
+        text-decoration: none;
+      }
     }
     .action {
       padding-top: 6px;
@@ -165,13 +168,13 @@ a.avatar {
 .meme-footer {
   .voteup-toggle {
     font-size: 20px;
-    color: #999;
+    color: #aaa;
     &.active {
       color: deeppink;
     }
   }
   .status {
-    color: #999;
+    color: #aaa;
     font-size: 13px;
     margin-left: 6px;
   }

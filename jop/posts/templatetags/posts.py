@@ -11,5 +11,5 @@ def user_votes(post, user=AnonymousUser()):
 
 
 @register.inclusion_tag('users/includes/avatar.html')
-def avatar(user, size=32):
-    return dict(user=user, size=size)
+def avatar(user, size=32, noname=False):
+    return dict(user=user, size=size, noname=noname)

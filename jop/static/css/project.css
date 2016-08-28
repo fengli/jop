@@ -40,19 +40,21 @@ body {
   background: white; }
   .post-item .post-header, .post-item .post-footer {
     border: 1px solid #eee;
-    padding: 12px 24px; }
+    padding: 12px 24px 20px 24px; }
   .post-item .post-header {
     font-size: 18px;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px; }
   .post-item .post-footer {
     border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
-    color: #999; }
-    .post-item .post-footer .status {
-      font-size: 12px;
-      border-bottom: 1px solid #efefef;
-      padding-bottom: 6px; }
+    border-bottom-right-radius: 3px; }
+    .post-item .post-footer a {
+      color: #aaa;
+      font-size: 14px; }
+      .post-item .post-footer a .count {
+        margin-right: 8px; }
+      .post-item .post-footer a:hover {
+        text-decoration: none; }
     .post-item .post-footer .action {
       padding-top: 6px; }
 
@@ -93,11 +95,11 @@ a.avatar {
 
 .meme-footer .voteup-toggle {
   font-size: 20px;
-  color: #999; }
+  color: #aaa; }
   .meme-footer .voteup-toggle.active {
     color: deeppink; }
 .meme-footer .status {
-  color: #999;
+  color: #aaa;
   font-size: 13px;
   margin-left: 6px; }
 

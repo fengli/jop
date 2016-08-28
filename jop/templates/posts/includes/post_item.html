@@ -2,10 +2,17 @@
 {% load posts %}
 
 <div class="post-item">
-    <div class="post-header"><a href="{% url 'posts:detail' post.slug %}">{{ post.title }}</a></div>
+    <div class="post-header">
+        {% if post.best_meme %}
+        {% avatar user=post.best_meme.author size=30 noname=True %}
+        <a href="{% url 'posts:detail' post.slug %}">{{ post.best_meme.meme }}</a>
+        {% endif %}
+    </div>
     <div class="post-body">
-        <img src="{{ MEDIA_URL }}{{ post.cached_image.image_file }}"/>
+        <a href="{% url 'posts:detail' post.slug %}"><img src="{{ MEDIA_URL }}{{ post.cached_image.image_file }}"/></a>
     </div>
     <div class="post-footer">
+        <a href="{% url 'posts:detail' post.slug %}"><i class="fa fa-heart" aria-hidden="true"></i> <span class="count">{{ post.num_votes }}</span></a>
+        <a href="{% url 'posts:detail' post.slug %}"><i class="fa fa-comment" aria-hidden="true"></i> <span class="count">{{ post.meme_set.count }}</span></a>
     </div>
 </div>

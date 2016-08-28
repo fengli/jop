@@ -1,5 +1,5 @@
 {% load socialaccount_tags %}
 {% get_social_accounts user as accounts %}
-<a href="" class="avatar">{{ user.first_name }} {{ user.last_name }}
+<a href="" class="avatar">{% if not noname %}{{ user.first_name }} {{ user.last_name }}{% endif %}
     <img class="avatar" src="{{ accounts.facebook.0.extra_data.picture.data.url }}" width="{{ size }}" />
 </a>

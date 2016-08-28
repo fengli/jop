@@ -10,7 +10,6 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class Post(models.Model):
-    title = models.TextField(verbose_name=_('Title'), max_length=100, db_index=True)
     slug = models.SlugField(editable=False, db_index=True, unique=True)
     description = models.TextField(verbose_name=_('Description'), max_length=1000)
     author = models.ForeignKey(settings.AUTH_USER_MODEL)
@@ -18,6 +17,9 @@ class Post(models.Model):
     tags = TaggableManager()
     creation_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now_add=True)
+    num_votes = models.IntegerField(default=0)
+    best_meme = models.ForeignKey('Meme', related_name='memeposts', null=True)
+    current_best_votes = models.IntegerField(default=0)
 
     def save(self, *args, **kwargs):
         while not self.slug:
@@ -57,6 +59,7 @@ class Meme(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL)
     creation_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now_add=True)
+    num_votes = models.IntegerField(default=0)
 
     def save(self, *args, **kwargs):
         while not self.slug:

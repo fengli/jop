@@ -46,13 +46,20 @@ def new_post(request):
             cached_image.save()
 
             post = Post()
-            post.title = cd['title']
-            post.description = cd['description']
             post.cached_image = cached_image
             post.update_date = datetime.now()
             post.author = request.user
             post.save()
             post.tags.add(*cd['tags'].split(','))
+            meme = Meme()
+            meme.meme = cd['title']
+            meme.update_date = datetime.now()
+            meme.author = request.user
+            meme.post = post
+            meme.save()
+
+            post.best_meme = meme
+            post.save()
 
             return HttpResponseRedirect(
                 reverse("posts:detail", kwargs={'slug': post.slug}))
@@ -88,28 +95,6 @@ def new_meme(request, slug):
 
 @login_required
 @csrf_exempt
-def vote_up(request, slug):
-    template_name = 'posts/includes/meme_footer.html'
-
-    if not request.method == 'POST':
-        raise Http404
-
-    post = get_object_or_404(Post, slug=slug)
-    vote = Vote.objects.get_for_user(post, request.user)
-
-    if vote:
-        Vote.objects.record_vote(post, request.user, 0)
-    else:
-        Vote.objects.record_vote(post, request.user, 1)
-
-    return render_to_response(
-        template_name,
-        {'meme': post},
-        context_instance=RequestContext(request))
-
-
-@login_required
-@csrf_exempt
 def vote_up_meme(request, slug):
     template_name = 'posts/includes/meme_footer.html'
 
@@ -121,8 +106,18 @@ def vote_up_meme(request, slug):
 
     if vote:
         Vote.objects.record_vote(meme, request.user, 0)
+        meme.num_votes -= 1
+        meme.post.num_votes -= 1
     else:
         Vote.objects.record_vote(meme, request.user, 1)
+        meme.num_votes += 1
+        meme.post.num_votes += 1
+        if meme.num_votes > meme.post.current_best_votes:
+            meme.post.current_best_votes += 1
+            meme.post.best_meme = meme
+
+    meme.save()
+    meme.post.save()
 
     return render_to_response(
         template_name,
